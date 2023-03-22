@@ -10,4 +10,6 @@ import UIKit
 
 class ButtonActionCell: UICollectionViewCell {
     
+    @IBOutlet var buttonLabel: UILabel!
+    
 }
