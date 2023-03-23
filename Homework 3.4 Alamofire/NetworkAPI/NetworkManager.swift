@@ -31,12 +31,25 @@ class NetworkManager {
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    let iceAndFire = getIceAndFireData(from: value)
+                    completion(.success((value as? IceAndFire)!)) //Помог компилятор. Не понимаю, что это?
                 case .failure(let error):
                     print(error)
                 }
             }
         
+    }
+    
+    
+    func fetchImage(from url: String, completion: @escaping(Result<Data, AFError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
+            completion(.failure(.invalidURL(url: NetworkError.errorDecoding as! URLConvertible)))
+            return
+        }
+        guard let imageData = try? Data(contentsOf: url) else {
+            completion(.failure(.sessionInvalidated(error: NetworkError.noData as! Error)))
+            return
+        }
+        completion(.success(imageData))
     }
    
     

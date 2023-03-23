@@ -13,12 +13,6 @@ struct IceAndFireModel: Codable {
     let culture: String?
     let born: String?
     
-    init(name: String?, gender: String?, culture: String?, born: String?) {
-        self.name = name
-        self.gender = gender
-        self.culture = culture
-        self.born = born
-    }
     
     init(iceAndFireData: [String:Any]) {
         name = iceAndFireData["name"] as? String
@@ -26,14 +20,10 @@ struct IceAndFireModel: Codable {
         culture = iceAndFireData["culture"] as? String
         born = iceAndFireData["born"] as? String
     }
+    
 }
 
-extension IceAndFire {
-    static func getIceAndFireData(from value: Any) -> [IceAndFireModel] {
-        guard let iceAndFires = value as? [[String:Any]] else { return [] }
-        return iceAndFires.compactMap {IceAndFireModel(iceAndFireData: $0)
-        }
-    }
+
     
     
-}
+

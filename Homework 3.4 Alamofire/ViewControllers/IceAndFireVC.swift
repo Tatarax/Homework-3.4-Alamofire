@@ -23,8 +23,17 @@ class IceAndFireVC: UIViewController {
         bornLabel.text = iceAndFire.born
     }
     
+    private func fetchIceAndFire() {
+        NetworkManager.shared.fetch(from: Link.urlIceAndFire.rawValue) { [weak self] result in
+            switch result {
+            case .success(let value):
+                self?.configur(with: value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     
-
     
 }
