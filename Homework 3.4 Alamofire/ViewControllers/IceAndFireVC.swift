@@ -15,6 +15,7 @@ class IceAndFireVC: UIViewController {
     @IBOutlet var cultureLabel: UILabel!
     @IBOutlet var bornLabel: UILabel!
     
+    var fire: IceAndFire = IceAndFire(name: "", gender: "", culture: "", born: "")
     
     func configur(with iceAndFire: IceAndFire) {
         nameLabel.text = iceAndFire.name
@@ -27,7 +28,8 @@ class IceAndFireVC: UIViewController {
         NetworkManager.shared.fetch(from: Link.urlIceAndFire.rawValue) { [weak self] result in
             switch result {
             case .success(let value):
-                self?.configur(with: value)
+                self?.fire = value
+                
             case .failure(let error):
                 print(error)
             }

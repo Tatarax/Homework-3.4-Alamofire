@@ -14,12 +14,8 @@ struct IceAndFireModel: Codable {
     let born: String?
     
     
-    init(iceAndFireData: [String:Any]) {
-        name = iceAndFireData["name"] as? String
-        gender = iceAndFireData["gender"] as? String
-        culture = iceAndFireData["culture"] as? String
-        born = iceAndFireData["born"] as? String
-    }
+   
+    
     
 }
 

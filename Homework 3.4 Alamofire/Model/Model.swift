@@ -8,13 +8,13 @@
 import Foundation
 
 struct IceAndFire: Codable {
-    let url: String
+   // let url: String
     let name, gender, culture, born: String
-    let died: String
-    let titles, aliases: [String]
-    let father, mother, spouse: String
-    let allegiances, books, povBooks: [String]
-    let tvSeries, playedBy: [String]
+   // let died: String
+   // let titles, aliases: [String]
+   // let father, mother, spouse: String
+   // let allegiances, books, povBooks: [String]
+   // let tvSeries, playedBy: [String]
 }
 
 

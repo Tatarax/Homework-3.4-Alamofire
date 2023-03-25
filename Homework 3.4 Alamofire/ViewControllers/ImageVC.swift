@@ -13,7 +13,7 @@ class ImageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchImage()
         
     }
     

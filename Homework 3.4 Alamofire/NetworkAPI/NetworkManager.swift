@@ -31,7 +31,13 @@ class NetworkManager {
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    completion(.success((value as? IceAndFire)!)) //Помог компилятор. Не понимаю, что это?
+                    guard let iceAndFireData = value as? [String:Any] else {return}
+                    let iceFire = IceAndFire(
+                        name: iceAndFireData ["name"] as? String ?? "",
+                        gender: iceAndFireData ["gender"] as? String ?? "",
+                        culture: iceAndFireData ["culture"] as? String ?? "",
+                        born: iceAndFireData ["born"] as? String ?? "")
+                    completion(.success(iceFire))
                 case .failure(let error):
                     print(error)
                 }
